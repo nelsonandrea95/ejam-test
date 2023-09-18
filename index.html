@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/owl.theme.default.min.css">
     
 </head>
 <body>
     <div>
         <div class="announcement-bar">
-            <div class="container announcement-bar-content slider">
-                <div class="anouncement-item slides nav">
+            <div class="container announcement-bar-content owl-carousel owl-theme">
+                <div class="anouncement-item">
                     <img src="images/guarantee-icon.svg" alt="">
                     <span>30-Day satisfation guarantee</span>
                 </div>
@@ -156,43 +158,24 @@
             </div>
         </div>
     </footer>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="owl.carousel.min.js"></script>
     <script>
-        /*Top slider*/
-        const slider = document.querySelector(".slider");
-        const slides = document.querySelectorAll(".slides");
-        const prevButton = document.querySelector(".nav .prev");
-        const nextButton = document.querySelector(".nav .next");
-
-        let currentSlideIndex = 0;
-
-        function showSlide(slideIndex) {
-        slides[currentSlideIndex].classList.remove("active");
-        slides[slideIndex].classList.add("active");
-        currentSlideIndex = slideIndex;
-        }
-
-        prevButton.addEventListener("click", function() {
-        if (currentSlideIndex > 0) {
-            showSlide(currentSlideIndex - 1);
-        } else {
-            // Loop back to the last slide
-            currentSlideIndex = slides.length - 1;
-            showSlide(currentSlideIndex);
-        }
-        });
-
-        nextButton.addEventListener("click", function() {
-        if (currentSlideIndex < slides.length - 1) {
-            showSlide(currentSlideIndex + 1);
-        } else {
-            // Loop back to the first slide
-            currentSlideIndex = 0;
-            showSlide(currentSlideIndex);
-        }
-        });
-
-        showSlide(0);
+        if($(window).width() < 768){
+            $('.owl-carousel').owlCarousel({
+                loop:true,
+                nav:true,
+                dots: false,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    800:{
+                        items:4
+                    }
+                }
+            })
+         }
     </script>
 </body>
 </html>
