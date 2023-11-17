@@ -113,11 +113,13 @@ h1{
 .content-left{
     width: 50%;
     display: block;
-    margin-right: 40px;
+    padding-right: 40px;
+}
+.content-right{
+    width: 50%;
 }
 .product-image img{
     width: 100%;
-    min-width: 575px;
 }
 h2{
     font-size: 32px;
@@ -374,6 +376,15 @@ footer{
     padding-left: 16px;
     border-left: solid 1px #fff;
 }
+@media (max-width: 1245px){
+    .container{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+@media (max-width: 1140px){
+
+}
 @media (max-width: 768px){
     .container{
         padding-left: 20px;
@@ -423,6 +434,10 @@ footer{
     .content-left{
         width: 100%;
         margin-right: 0px;
+        padding-right: 0px;
+    }
+    .content-right{
+        width: 100%;
     }
     .testimonials{
         display: none;
